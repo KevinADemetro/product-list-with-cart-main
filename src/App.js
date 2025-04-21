@@ -80,6 +80,9 @@ function Cart() {
             <dt>Order Total</dt>
             <dd>R${getTotalOrder()}</dd>
           </dl>
+          <div className="button">
+            <button>Confirm Order</button>
+          </div>
         </>
       ) : (
         <div className="empty-cart">
