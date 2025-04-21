@@ -1,3 +1,14 @@
+:root {
+  --red: hsl(14, 86%, 42%);
+  --green: hsl(159, 69%, 38%);
+  --rose-50: hsl(20, 50%, 98%);
+  --rose-100: hsl(13, 31%, 94%);
+  --rose-300: hsl(14, 25%, 72%);
+  --rose-400: hsl(7, 20%, 60%);
+  --rose-500: hsl(12, 20%, 44%);
+  --rose-900: hsl(14, 65%, 9%);
+}
+
 @font-face {
   font-family: "Red Hat Text";
   src: url("./assets/RedHatText-VariableFont_wght.ttf") format("truetype");
@@ -7,4 +18,48 @@
 
 body {
   font-family: "Red Hat Text", sans-serif;
+  background: var(--rose-50);
+}
+
+.App {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+}
+
+.desserts-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  padding: 0;
+}
+
+.dessert-card img {
+  width: 100%;
+  border-radius: 0.6rem;
+  text-align: center;
+}
+
+.dessert-infos h6,
+span,
+p {
+  margin: 0;
+}
+
+.dessert-infos p {
+  font-size: 0.7rem;
+  font-weight: 100;
+  color: var(--rose-900);
+}
+.dessert-infos h6 {
+  font-weight: 500;
+}
+
+.dessert-infos span {
+  color: var(--red);
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+.add-to-cart-btn {
+  margin-top: 0.8rem;
 }
