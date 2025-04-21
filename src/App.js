@@ -35,12 +35,15 @@ function DessertCard({ dessert }) {
   return (
     <div className="dessert-card">
       <img src={dessert.image.desktop} alt={dessert.name} />
+      <button className="add-to-cart-btn">
+        <img src="images/icon-add-to-cart.svg" alt="cart-icon" />
+        Add to Cart
+      </button>
       <div className="dessert-infos">
         <p>{dessert.category}</p>
         <h6>{dessert.name}</h6>
         <span>{`R$${dessert.price.toFixed(2)}`}</span>
       </div>
-      <button className="add-to-cart-btn">TESTE</button>
     </div>
   );
 }
