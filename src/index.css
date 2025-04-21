@@ -18,7 +18,7 @@
 
 body {
   font-family: "Red Hat Text", sans-serif;
-  background: var(--rose-50);
+  background: var(--rose-100);
 }
 
 .App {
@@ -92,6 +92,13 @@ p {
   margin: 0;
 }
 
+.cart {
+  background: var(--rose-50);
+  border-radius: 1rem;
+  height: fit-content;
+  padding: 0rem 2rem 2rem 2rem;
+}
+
 .cart h4 {
   color: var(--red);
 }
@@ -105,4 +112,71 @@ p {
 .empty-cart p {
   font-size: 0.7rem;
   color: var(--rose-900);
+}
+
+.cart ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cart ul li {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 1rem;
+  align-items: center;
+  padding: 1rem 0rem;
+  border-bottom: 1px solid var(--rose-100);
+}
+
+.cart ul li button img {
+  border: 1px solid var(--rose-400);
+  padding: 0.3rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+}
+
+.cart ul li button {
+  border: 0;
+  background-color: transparent;
+  padding: 0;
+}
+
+.item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.item-info .item-values {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.8rem;
+}
+
+.item-info .quantity {
+  color: var(--red);
+  font-weight: 500;
+}
+
+.item-info .price {
+  font-weight: 100;
+}
+
+.item-info label {
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.total-order {
+  display: flex;
+  justify-content: space-between;
+}
+
+.total-order dd {
+  font-weight: bold;
+}
+.total-order dt {
+  font-weight: 100;
+  font-size: 0.9rem;
 }

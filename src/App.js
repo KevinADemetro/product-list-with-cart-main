@@ -30,7 +30,7 @@ function DessertsGrid() {
   return (
     <ul className="desserts-grid">
       {desserts.map((dessert) => (
-        <li>
+        <li key={dessert.name}>
           <DessertCard dessert={dessert} />
         </li>
       ))}
@@ -56,11 +56,32 @@ function DessertCard({ dessert }) {
 }
 
 function Cart() {
-  const isCartEmpty = true;
+  const cartItems = initialCart;
+  // const cartItems = [];
+
+  function getTotalOrder() {
+    return cartItems
+      .reduce((total, item) => {
+        return total + item.price * item.quantity;
+      }, 0)
+      .toFixed(2);
+  }
   return (
     <div className="cart">
-      <h4>Your Cart(X)</h4>
-      {isCartEmpty ? (
+      <h4>Your Cart ({cartItems.length})</h4>
+      {cartItems.length > 0 ? (
+        <>
+          <ul>
+            {cartItems.map((item) => (
+              <CartItem item={item} key={item.name} />
+            ))}
+          </ul>
+          <dl className="total-order">
+            <dt>Order Total</dt>
+            <dd>R${getTotalOrder()}</dd>
+          </dl>
+        </>
+      ) : (
         <div className="empty-cart">
           <img
             src="images/illustration-empty-cart.svg"
@@ -68,10 +89,26 @@ function Cart() {
           />
           <p>Your added items will appear here</p>
         </div>
-      ) : (
-        <></>
       )}
     </div>
+  );
+}
+
+function CartItem({ item }) {
+  return (
+    <li>
+      <div className="item-info">
+        <label>{item.name}</label>
+        <div className="item-values">
+          <span className="quantity">{item.quantity}x</span>
+          <span className="price">R${item.price.toFixed(2)}</span>
+          <span>R${(item.price * item.quantity).toFixed(2)}</span>
+        </div>
+      </div>
+      <button>
+        <img src="images/icon-remove-item.svg" alt="X" />
+      </button>
+    </li>
   );
 }
 export default App;
